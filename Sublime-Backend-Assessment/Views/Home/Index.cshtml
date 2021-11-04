@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Sveriges Radio";
+}
+
+<div class="jumbotron">
+    <h1>Sveriges Radio</h1>
+    <p class="lead"></p>
+    <p>
+        <ul>
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            <li>@Html.ActionLink("Humor", "ProgramsByCategory", "SverigesRadio")</li>
+            <li>@Html.ActionLink("Podcast", "ProgramsPodcasts", "SverigesRadio")</li>
+            <li>@Html.ActionLink("Not Archived", "ProgramsNotArchived", "SverigesRadio")</li>
+        </ul>
+</div>

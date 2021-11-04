@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Sveriges Radio ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+    dd {
+        border-bottom: 1px solid #44444414;
+    }
+
+    .card {
+        box-shadow: 0 0 1px 1px #0001a;
+    }
+
+    .card-body {
+        padding: 4px 8px;
+    }
+
+    .body-content {
+        margin-top: 5px;
+    }
+
+    .d-flex {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .flex-row {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .mb-3 {
+        margin-bottom: 3em;
+    }
+
+    .mr-1 {
+        margin-right: 1em;
+    }
+
+    a {
+        text-decoration: none;
+        color: #000000;
+    }
+</style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Humor", "ProgramsByCategory", "SverigesRadio")</li>
+                    <li>@Html.ActionLink("Podcast", "ProgramsPodcasts", "SverigesRadio")</li>
+                    <li>@Html.ActionLink("Not Archived", "ProgramsNotArchived", "SverigesRadio")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

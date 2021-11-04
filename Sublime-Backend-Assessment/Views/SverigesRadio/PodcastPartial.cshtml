@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Sublime_Backend_Assessment.Models.SverigesRadio.BaseModels.Podcast>
+
+@{
+    Layout = null;
+}
+<div class="d-flex flex-row mb-3">
+    @foreach (var item in Model)
+    {
+        <div class="card mb-3 mr-1" style="width:16em">
+            <div class="card-body">
+                <h5 class="card-title">
+                    @Html.DisplayFor(modelItem => item.Title)
+                </h5>
+                <blockquote class="blockquote mb-0">
+                    <p>
+                        @Html.DisplayFor(modelItem => item.Publishdateutc)
+                    </p>
+                    <footer class="blockquote-footer">
+                        @Html.DisplayFor(modelItem => item.Duration)
+                    </footer>
+                </blockquote>
+                <p class="card-text">
+                    <audio controls style="width: 100%;">
+                        <source src="@Html.DisplayFor(modelItem => item.Url)" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </p>
+            </div>
+        </div>
+    }
+</div>

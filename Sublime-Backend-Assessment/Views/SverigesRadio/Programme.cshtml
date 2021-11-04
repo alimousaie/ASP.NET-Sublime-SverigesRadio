@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Sublime_Backend_Assessment.Models.SverigesRadio.ProgramGroupedPresenter>
+
+<dl>
+    @foreach (var item in Model)
+    {
+        <dt>
+            <h3>Category: <b>@Html.DisplayFor(modelItem => item.Name)</b> -- @(item.Programs.Count)</h3>
+        </dt>
+
+        <dd>
+            <div class="d-flex flex-row mb-3">
+                @foreach (var program in item.Programs)
+                {
+                    <div class="d-flex flex-row mb-3">
+                        <a href="@(program.Programurl)">
+                            <div class="card mb-3 mr-1" style="width: 20em;">
+                                <img class="card-img-top" style="width:20em;"
+                                     src="@Html.DisplayFor(modelItem => program.Programimage)"
+                                     alt="@Html.DisplayFor(modelItem => program.Name)">
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        @Html.DisplayFor(modelItem => program.Name)
+                                    </h4>
+                                    <p class="card-text">
+                                        @Html.DisplayFor(modelItem => program.Description)
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                        @if (program.Haspod && program.Podcasts != null)
+                        {
+                            Html.RenderPartial("PodcastPartial", program.Podcasts);
+                        }
+                    </div>
+                }
+            </div>
+        </dd>
+    }
+</dl>
